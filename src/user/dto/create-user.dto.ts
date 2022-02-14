@@ -1,12 +1,17 @@
-import { CommonDto } from '../../dto';
-import { ApiProperty } from '@nestjs/swagger';
+import { TimeStampDto } from '../../dto';
+import { ApiProperty, PartialType } from '@nestjs/swagger';
 
-export class CreateUserDto extends CommonDto {
+export enum UserRoleEnm {
+  'admin',
+  'user',
+}
+
+export class CreateUserDto extends PartialType(TimeStampDto) {
   @ApiProperty({ example: 'id', description: 'id' })
-  id: number;
+  private readonly id: number;
 
   @ApiProperty({ example: 'user', description: '用户名' })
-  username: string;
+  private readonly username: string;
 
   @ApiProperty({ example: 'user12345', description: '密码' })
   password: string;
@@ -20,6 +25,9 @@ export class CreateUserDto extends CommonDto {
   @ApiProperty({ example: '123@qq.com', description: '邮箱' })
   email: string;
 
-  @ApiProperty({ example: '普通用户', description: '角色' })
-  role: string;
+  @ApiProperty({
+    example: '0管理员',
+    description: '用户角色：0管理员，1普通用户',
+  })
+  role: UserRoleEnm;
 }

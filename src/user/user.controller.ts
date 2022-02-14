@@ -8,7 +8,8 @@ import {
   Delete,
 } from '@nestjs/common';
 import { UserService } from './user.service';
-import { CreateUserDto, UpdateUserDto, MessageDto } from './dto';
+import { CreateUserDto, UpdateUserDto } from './dto';
+import { MessageDto } from '../dto';
 import {
   ApiProperty,
   ApiBody,

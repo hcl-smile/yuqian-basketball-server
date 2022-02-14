@@ -1,6 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 
-export class CommonDto {
+export class TimeStampDto {
   @ApiProperty({ example: new Date(), description: '创建时间' })
   createTime: Date;
 
