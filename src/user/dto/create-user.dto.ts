@@ -7,9 +7,6 @@ export enum UserRoleEnm {
 }
 
 export class CreateUserDto extends PartialType(TimeStampDto) {
-  @ApiProperty({ example: 'id', description: 'id' })
-  private readonly id: number;
-
   @ApiProperty({ example: 'user', description: '用户名' })
   private readonly username: string;
 
